@@ -10,7 +10,6 @@ mod product;
 mod sum;
 mod var;
 
-#[macro_export]
 macro_rules! impl_bin_add {
     ($t:ident) => {
         impl<R, A, B> Add<R> for $t<A, B>
@@ -30,7 +29,6 @@ macro_rules! impl_bin_add {
 impl_bin_add!(Sum);
 impl_bin_add!(Product);
 
-#[macro_export]
 macro_rules! impl_bin_mul {
     ($t:ident) => {
         impl<R, A, B> Mul<R> for $t<A, B>
