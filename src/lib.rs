@@ -51,7 +51,7 @@ impl_bin_mul!(Product);
 #[macro_export]
 macro_rules! var {
     ($value:expr) => {
-        Var::new($value)
+        Var::from($value)
     };
 }
 #[cfg(test)]

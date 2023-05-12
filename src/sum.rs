@@ -19,7 +19,7 @@ where
     pub fn new(left: L, right: R) -> Self {
         let data = left.data() + right.data();
         Self {
-            var: Var::new(data),
+            var: Var::from(data),
             left,
             right,
         }
@@ -52,8 +52,8 @@ mod tests {
 
     #[test]
     fn add_grad() {
-        let a = Var::new(3.0);
-        let b = Var::new(2.0);
+        let a = Var::from(3.0);
+        let b = Var::from(2.0);
         let mut c = a.clone() + b.clone();
 
         assert_eq!(c.data(), 5.0);
@@ -66,7 +66,7 @@ mod tests {
 
     #[test]
     fn twice_add_grad() {
-        let a = Var::new(3.0);
+        let a = Var::from(3.0);
         let mut c = a.clone() + a.clone();
 
         assert_eq!(c.data(), 6.0);

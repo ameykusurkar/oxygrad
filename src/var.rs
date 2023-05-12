@@ -9,8 +9,8 @@ pub struct Value {
     grad: f32,
 }
 
-impl Value {
-    fn new(data: f32) -> Self {
+impl From<f32> for Value {
+    fn from(data: f32) -> Self {
         Self { data, grad: 0.0 }
     }
 }
@@ -34,10 +34,10 @@ pub struct Var {
     val: Rc<RefCell<Value>>,
 }
 
-impl Var {
-    pub fn new(data: f32) -> Self {
+impl From<f32> for Var {
+    fn from(data: f32) -> Self {
         Self {
-            val: Rc::new(RefCell::new(Value::new(data))),
+            val: Rc::new(RefCell::new(Value::from(data))),
         }
     }
 }
@@ -84,7 +84,7 @@ mod tests {
 
     #[test]
     fn var_grad() {
-        let mut val = Var::new(3.0);
+        let mut val = Var::from(3.0);
         assert_eq!(val.data(), 3.0);
         assert_eq!(val.grad(), 0.0);
 
