@@ -4,7 +4,7 @@ use std::rc::Rc;
 
 use crate::{Backward, Product, Sum};
 
-struct Value {
+pub struct Value {
     data: f32,
     grad: f32,
 }

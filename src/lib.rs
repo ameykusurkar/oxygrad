@@ -1,9 +1,9 @@
 use std::ops::{Add, Mul};
 
-use crate::backward::Backward;
+pub use crate::backward::Backward;
 use crate::product::Product;
 use crate::sum::Sum;
-use crate::var::Var;
+pub use crate::var::Var;
 
 mod backward;
 mod product;
@@ -54,7 +54,6 @@ macro_rules! var {
         Var::new($value)
     };
 }
-
 #[cfg(test)]
 mod tests {
     use super::*;
